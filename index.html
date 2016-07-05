@@ -11,11 +11,17 @@
 </head>
 
 <body>
+    <div class="contnet" ng-controller="mainCtrl">
+        <div ng-include="headerTemplate"></div>
+        <div ng-include="templateUrl"></div>
+    </div>
     <!--Register  Module-->
     <script src="app/register/register.js"></script>
+    <script src="app/register/registerCtrl.js"></script>
     <!--End of Register Module-->
     <!--Main Module-->
     <script src="app/app.js"></script>
+    <script src="app/common/mainCtrl.js"></script>
 </body>
 
 </html>

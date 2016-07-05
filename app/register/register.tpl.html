@@ -1,0 +1,39 @@
+<h1>Register</h1>
+
+<form class="form-horizontal" ng-controller="registerCtrl">
+    <div class="form-group">
+        <label for="inputEmail" class="control-label col-xs-2">First Name</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="First Name" ng-model="user.firstName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail" class="control-label col-xs-2">Last Name</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="Last Name" ng-model="user.lastName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail" class="control-label col-xs-2">Gender</label>
+
+        <div class="col-xs-4">
+            <input type="radio" ng-model="user.gender" name="gender" value="M">M
+            <input type="radio" ng-model="user.gender" name="gender" value="F">F
+            <input type="radio" ng-model="user.gender" name="gender" value="N/A">Don't reveal
+        </div>
+    </div>
+    <div class="form-group">
+
+
+        <div class="col-xs-6">
+            <input type="checkbox" class="control-radio" ng-model="user.terms">
+            <label> I agree Terms and conditions</label>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-4">
+            <button class="btn btn-primary" ng-disabled="!user.terms" ng-click="registerUser()">Register</button>
+        </div>
+    </div>
+</form>
