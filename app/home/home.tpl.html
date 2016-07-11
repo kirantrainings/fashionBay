@@ -1,18 +1,23 @@
 <div ng-controller="homeCtrl">
 
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-3">
             <input type="text" class="form-control" placeholder="Search By Category" ng-model="categorySearch">
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-3">
             <input type="text" class="form-control" placeholder="Search By price" ng-model="priceSearch">
+        </div>
+        <div class="col-xs-3">
+            <button class="btn btn-primary">Filter</button>
         </div>
     </div>
 
     <hr>
     <div class="row">
 
-        <div class="col-sm-6 col-md-3" ng-repeat="item in products|filter:{category:categorySearch}|filter:{price:priceSearch}">
+        <div class="col-sm-6 col-md-3" ng-repeat="item in products
+           |filter:{category:categorySearch}
+           |princeRange:{price:priceSearch}">
             <div class="thumbnail">
                 <img src="{{item.imageUrl}}" alt="Generic placeholder thumbnail">
             </div>
@@ -21,12 +26,10 @@
                 <h3>{{item.model}}</h3>
                 <p>{{item.description}}</p>
                 <p>{{item.price|currency:"Rs."}}</p>
-
                 <p>
                     <a href="#" class="btn btn-primary" role="button">
                Button
             </a>
-
                     <a href="#" class="btn btn-default" role="button">
                Button
             </a>

@@ -1,4 +1,4 @@
-angular.module("fashionBay", ["register", "home"]);
+angular.module("fashionBay", ["register", "home", "components"]);
 
 angular.module("fashionBay")
     .config(function () {
