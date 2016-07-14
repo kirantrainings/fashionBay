@@ -23,17 +23,25 @@
             </div>
 
             <div class="caption">
-                <h3>{{item.model}}</h3>
-                <p>{{item.description}}</p>
-                <p>{{item.price|currency:"Rs."}}</p>
+                <h3 ng-bind="item.model"></h3>
+                <p ng-bind="item.description"></p>
+                <p ng-bind="item.price|currency:'Rs.'"></p>
                 <p>
-                    <a href="#" class="btn btn-primary" role="button">
+                    <button class="btn btn-primary" ng-click="showDescription(item)">
+                        View Description
+                    </button>
+                    <button class="btn btn-primary" ng-click="addToCart(item)">
+                        Add To Cart
+                    </button>
+                    <!--<a href="#" class="btn btn-default" role="button">
                Button
-            </a>
-                    <a href="#" class="btn btn-default" role="button">
-               Button
-            </a>
+            </a>-->
                 </p>
+                <div class="panel panel-default" ng-show="item.showFullDesc">
+                    <div class="panel-body">
+                        this product is awesome
+                    </div>
+                </div>
 
             </div>
         </div>

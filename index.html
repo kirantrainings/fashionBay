@@ -2,7 +2,7 @@
 <html ng-app="fashionBay">
 
 <head>
-    <title>{{Welcome}}</title>
+    <title ng-bind="appName"></title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <script src="bower_components/jquery/jquery.js"></script>
@@ -15,6 +15,12 @@
         <div ng-include="headerTemplate"></div>
         <div ng-include="templateUrl"></div>
     </div>
+    <!--products module-->
+    <script src='app/products/products.js'></script>
+    <script src="app/products/produtSvc.js"></script>
+    <!--Cart module-->
+    <script src="app/cart/cart.js"></script>
+    <script src="app/cart/cartCtrl.js"></script>
     <!--home module-->
     <script src="app/home/home.js"></script>
     <script src="app/home/homeCtrl.js"></script>
@@ -23,6 +29,10 @@
     <script src="app/register/register.js"></script>
     <script src="app/register/registerCtrl.js"></script>
     <!--End of Register Module-->
+    <!--login module-->
+    <script src="app/login/login.js"></script>
+    <script src="app/login/loginCtrl.js"></script>
+    <!--end of login-->
     <!--Componentss Begin-->
     <script src="app/components/components.js"></script>
     <script src="app/components/rangeFilter.js"></script>

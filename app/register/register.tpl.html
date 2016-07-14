@@ -26,8 +26,7 @@
     <div class="form-group">
         <label for="inputEmail" class="control-label col-xs-2">Country</label>
         <div class="col-xs-4">
-            <select class="form-control" 
-               ng-options="item.name for item in countries" ng-model="selectedCountry" ng-change="loadStates()">
+            <select class="form-control" ng-options="item.name for item in countries" ng-model="selectedCountry" ng-change="loadStates()">
                 <option value="">Please Select</option>
             </select>
         </div>
@@ -35,9 +34,7 @@
     <div class="form-group">
         <label for="inputEmail" class="control-label col-xs-2">States</label>
         <div class="col-xs-4">
-            <select class="form-control"
-                ng-options="state.statename for state in stateList" 
-                ng-model="selectedState">
+            <select class="form-control" ng-options="state.statename for state in stateList" ng-model="selectedState">
                 <option value="">Please Select</option>
             </select>
         </div>
@@ -53,7 +50,7 @@
     </div>
     <div class="form-group">
         <div class="col-xs-offset-2 col-xs-4">
-            <button class="btn btn-primary" ng-disabled="!user.terms" ng-click="registerUser()">Register</button>
+            <button class="btn btn-primary" ng-disabled="!register.agree" ng-click="registerUser()">Register</button>
         </div>
     </div>
 </form>
