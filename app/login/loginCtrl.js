@@ -1,9 +1,15 @@
 angular.module("login")
-    .controller("loginCtrl", [function () {
+    .controller("loginCtrl", ["authenticateSvc", "$rootScope", function (authenticateSvc, $rootScope) {
         this.loginData = {
-            email: "pvskiran@gmail.com"
+            username: "",
+            password: ""
         };
         this.loginUser = function () {
-            console.log(this.loginData);
+            var security = authenticateSvc.loginUser(this.loginData);
+            if (security.isAuthenticated) {
+                $rootScope.$broadcast("USER-LOGGEDIN");
+            } else {
+                this.showInvalidCredentials = true;
+            }
         };
 }]);

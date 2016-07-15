@@ -3,9 +3,9 @@
 <form class="form-horizontal" ng-controller="loginCtrl as loginvm">
 
     <div class="form-group">
-        <label for="inputEmail" class="control-label col-xs-2">Email</label>
+        <label for="inputEmail" class="control-label col-xs-2">User Name</label>
         <div class="col-xs-4">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="loginvm.loginData.email">
+            <input type="text" class="form-control" id="inputEmail" placeholder="User Name" ng-model="loginvm.loginData.username">
         </div>
     </div>
     <div class="form-group">
@@ -19,6 +19,8 @@
             <div class="checkbox">
                 <label>
                     <input type="checkbox"> Remember me</label>
+                <label>
+                    <label class="lbl label-danger" ng-show="loginvm.showInvalidCredentials">Invalid Credentials</label>
             </div>
         </div>
     </div>

@@ -6,7 +6,9 @@ angular.module('home')
                 item.showFullDesc = !item.showFullDesc;
             };
             $scope.addToCart = function (item) {
+
                 productSvc.addToCart(item);
+
                 $rootScope.$broadcast("PRODUCT-ADDED", {
                     product: item
                 });

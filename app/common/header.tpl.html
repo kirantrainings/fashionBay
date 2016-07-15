@@ -30,9 +30,15 @@
                 <input type="text" placeholder="Search" class="form-control">
             </div>
         </form>
-        <ul class="nav navbar-nav navbar-right">
+
+        <ul class="nav navbar-nav navbar-right" ng-if="!security.isAuthenticated">
             <li ng-click="loadPage('register')"><a href="#">Register</a></li>
             <li ng-click="loadPage('login')"><a href="#">Login</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" ng-if="security.isAuthenticated">
+            <li><a href="#">{{security.userDetails.lastName+", "+security.userDetails.firstName}}</a></li>
+            <li ng-click="logOut()"><a href="#">Logout</a></li>
             <li ng-click="loadPage('cart')"><a href="#">Cart {{cartItems.length}}</a></li>
         </ul>
     </div>
