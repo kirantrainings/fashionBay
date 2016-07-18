@@ -1,18 +1,16 @@
 angular.module("login")
-    .service("authenticateSvc", [function () {
+    .service("authenticateSvc", ["$http", "$q", function ($http, $q) {
+        var authenticate = function (users, user) {
+            angular.forEach(users, function (item) {
+                if (item.username == user.username && item.password == user.password) {
+                    security.isAuthenticated = true;
+                    security.userDetails.firstName = item.firstName;
+                    security.userDetails.lastName = item.lastName;
+                }
+            });
+            return security;
+        };
 
-        var users = [{
-                "username": "kiran",
-                "password": "kiran@1234",
-                "firstName": "Kiran",
-                "lastName": "Paturi"
-            },
-            {
-                "username": "ravi",
-                "password": "ravi@1234",
-                "firstName": "RaviChandra",
-                "lastName": "P"
-            }];
 
         var security = {
             isAuthenticated: false,
@@ -23,23 +21,24 @@ angular.module("login")
         };
 
         this.loginUser = function (user) {
-            angular.forEach(users, function (item) {
-                if (item.username == user.username && item.password == user.password) {
-                    security.isAuthenticated = true;
-                    security.userDetails.firstName = item.firstName;
-                    security.userDetails.lastName = item.lastName;
-                }
-            });
-            return security;
+            var dfd = $q.defer();
+            $http.get("app/data/users.json")
+                .then(function (response) {
+                    var security = authenticate(response.data.users, user);
+                    dfd.resolve(security);
+                }).catch(function (response) {
+
+                })
+            return dfd.promise;
         };
-        
-        this.logOut = function(){
-            security.isAuthenticated=false;
-            security.userDetails.firstName="";
-            security.userDetails.lastName="";
+
+        this.logOut = function () {
+            security.isAuthenticated = false;
+            security.userDetails.firstName = "";
+            security.userDetails.lastName = "";
         };
-        
-        this.authenciateDetails = function(){
+
+        this.authenciateDetails = function () {
             return security;
         };
 }]);

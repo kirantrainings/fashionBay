@@ -1,5 +1,5 @@
 angular.module("products")
-    .service("productSvc", [function () {
+    .service("productSvc", ["$http", "$q", function ($http, $q) {
         var cartItems = [];
         this.getProducts = function () {
             var data = [
@@ -68,4 +68,19 @@ angular.module("products")
         this.addToCart = function (item) {
             cartItems.push(item);
         };
+
+        this.getProductsFromApi = function () {
+            //Step 1.
+            var dfd = $q.defer();
+
+            $http.get("app/data/products.json")
+                .then(function (response) {
+                    dfd.resolve(response.data.products);
+                })
+                .catch(function (response) {
+                    dfd.reject("Error Occurred");
+                });
+            //step 2.
+            return dfd.promise;
+        }
 }]);
