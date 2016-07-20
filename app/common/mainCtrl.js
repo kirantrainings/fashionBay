@@ -7,11 +7,9 @@ angular.module("fashionBay")
             $scope.appName = "FashionBay";
             $scope.loadPage = function (pageType) {
                 $scope.security = authenticateSvc.authenciateDetails();
-                if ($scope.security.isAuthenticated) {
 
-                    if (pageType == 'register') {
-                        $scope.templateUrl = "app/register/register.tpl.html"
-                    } else if (pageType == 'login') {
+                if ($scope.security.isAuthenticated) {
+                    if (pageType == 'login') {
                         $scope.templateUrl = "app/login/login.tpl.html";
                     } else if (pageType == 'cart') {
                         $scope.templateUrl = "app/cart/cart.tpl.html";
@@ -19,6 +17,9 @@ angular.module("fashionBay")
                         $scope.templateUrl = "app/home/home.tpl.html";
                 } else {
                     $scope.templateUrl = "app/login/login.tpl.html";
+                }
+                if (pageType == 'register') {
+                    $scope.templateUrl = "app/register/register.tpl.html"
                 }
             };
             $scope.cartItems = [];
