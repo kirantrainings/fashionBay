@@ -1,10 +1,17 @@
 <h1>Register</h1>
 
-<form class="form-horizontal" ng-controller="registerCtrl">
+<form class="form-horizontal" name="registerForm" ng-controller="registerCtrl" novalidate>
+
     <div class="form-group">
         <label for="inputEmail" class="control-label col-xs-2">First Name</label>
         <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="First Name" ng-model="user.firstName" alphabets-only>
+            <input type="text" class="form-control" placeholder="First Name" name="firstName" ng-model="user.firstName" ng-minlength="4" ng-maxlength="10" required ng-pattern="/^[a-zA-Z ]*$/">
+        </div>
+        <div ng-show="registerForm.firstName.$dirty">
+            <p ng-show="registerForm.firstName.$error.pattern">Invalid Name </p>
+            <p ng-show="registerForm.firstName.$error.required">First Name Required</p>
+            <p ng-show="registerForm.firstName.$error.minlength">First Name Minimum length 4</p>
+            <p ng-show="registerForm.firstName.$error.maxlength">First Name Maximum length 10</p>
         </div>
     </div>
     <div class="form-group">

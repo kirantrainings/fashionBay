@@ -1011,5 +1011,17 @@ angular.module("register")
                 "countrycode": "US",
                 "statename": "Texas",
                 "statecode": "TX"
-            }]
+            }];
+
+        $scope.userinfo = "kiran";
+
+        setTimeout(function () {
+            $scope.userinfo = "PVS";
+            $scope.$apply();
+        }, 5000)
+
+        $scope.$watch("userinfo", function (newVal, oldVal) {
+            console.log("New Value is : " + newVal);
+            console.log("Old Value is : " + oldVal);
+        });
 }]);
