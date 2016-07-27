@@ -17,8 +17,8 @@
 
 <body>
     <div class="container" ng-controller="mainCtrl">
-        <div ng-include="headerTemplate"></div>
-        <div ng-include="templateUrl"></div>
+        <div ng-include="navbar"></div>
+        <div ui-view></div>
     </div>
     <div custom-name></div>
     <!--products module-->

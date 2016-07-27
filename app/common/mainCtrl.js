@@ -5,6 +5,7 @@ angular.module("fashionBay")
             $scope.headerTemplate = "app/common/header.tpl.html";
             $scope.templateUrl = "app/login/login.tpl.html";
             $scope.appName = "FashionBay";
+            $scope.navbar = "app/common/navbar.tpl.html";
             $scope.loadPage = function (pageType) {
                 $scope.security = authenticateSvc.authenciateDetails();
 
