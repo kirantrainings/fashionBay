@@ -1,5 +1,7 @@
     angular.module("login")
-        .controller("loginCtrl", ["$rootScope", "authenticateSvc", "$state", function ($rootScope, authenticateSvc, $state) {
+        .controller("loginCtrl", ["$rootScope", "authenticateSvc", "$state", "game", "APP_VALUES", function ($rootScope, authenticateSvc, $state, game, APP_VALUES) {
+            console.log(game.title);
+            console.log(APP_VALUES.version);
             this.loginData = {
                 username: "",
                 password: ""

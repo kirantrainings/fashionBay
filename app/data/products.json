@@ -24,14 +24,14 @@
        {         
             "imageUrl": "https://fashionbuzzer.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/d/n/dn.49396_1.jpg",
                      "description": "For my cute sweet daughter",
-                     "price": 4000,
+                     "price": "4000",
                      "model": "EthnicWear ",
                      "category": "Girls"      
         },
        {         
             "imageUrl": "http://4.imimg.com/data4/VQ/SM/MY-335323/indian-bridal-wear-suits-250x250.jpg",
                      "description": "For my cute sweet daughter",
-                     "price": 5000,
+                     "price": "5000",
                      "model": "EthnicWear ",
                      "category": "Girls"      
         },

@@ -1,7 +1,8 @@
 angular.module('home')
-    .controller('homeCtrl', ["$scope", "$rootScope", "productSvc",
-                             function ($scope, $rootScope, productSvc) {
-            // $scope.products = productSvc.getProducts();
+    .controller('homeCtrl', ["$scope", "$rootScope", "productSvc", "productInfo",
+
+                             function ($scope, $rootScope, productSvc, productInfo) {
+            $scope.products = productInfo;
 
             $scope.showDescription = function (item) {
                 item.showFullDesc = !item.showFullDesc;
@@ -15,10 +16,10 @@ angular.module('home')
                 });
             };
 
-            productSvc.getProductsFromApi()
-                .then(function (response) {
-                    $scope.products = response;
-                }).catch(function (response) {
-                    $scope.error = response;
-                });
+            /*   productSvc.getProductsFromApi()
+       .then(function (response) {
+           $scope.products = response;
+       }).catch(function (response) {
+           $scope.error = response;
+       });*/
 }]);
